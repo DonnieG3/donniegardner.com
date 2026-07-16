@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Donnie Gardner | UX Design, Product Owner, Illustrator</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="dg-styles.css">
+</head>
+
+<body style="padding: 0; margin: 0; background-image: url(http://donniegardner.com/images/rainbow-bridge.jpg); overflow: visible; background-position: top left; width: 100%; background-size:cover; background-repeat: repeat-x;">
+	<center>
+	
+		<div style="padding: 10px; font-size:large; background: #777">
+			Donnie Garnder | <span style="color: #FFFFFF;">UX/UI Designer, Illustrator, Product Manager</span><br />
+		</div>
+		
+		<div style="border-radius: 20px; background-color: #D3D3D3; padding: 20px; margin: 20px 15vh 300px auto; width: 30%; font-size: 2em; z-index: -1; position: relative; float: right; box-shadow: 1px 5px 10px #777;">Welcome, I'm Donnie<br /> Sr Product Manager, UX/UI Designer and Illustrator. </div>
+		
+		<div style="padding: 20px; z-index: 100; align-content: center; position:absolute;">	
+			<center><img src="http://donniegardner.com/images/eggHead.png"></center> <br />
+		</div>
+		<br />
+		<div style="width:100%; float:left; margin-top: 50px; margin-bottom: 70px; padding-bottom: 25px; border: 0; background: #FFFFFF; height: 60vh">
+			<iframe frameborder="0" width="90%" height="90%" src="https://docs.google.com/document/d/e/2PACX-1vTJLE637iOQvPh-DC5gtxCdek8Xap5IIGrZ4GJW6682L1unnLONk8g_hrQsSC1R0c1c2VxUBsKd4gpl/pub?embedded=true"></iframe>
+			<br /><br />
+			<a style="padding: 10px;" href="https://www.donniegardner.com/content/Donnie-Gardner-Resume-2-24.pdf">Download PDF</a>
+			<br /><br />
+		</div><br />
+		<div><br />
+			<span style="float: left; margin-left: 50px; font-size: 2em;">Logo Design</span><br />
+			<img src="images/logos-branding/DoGood-Icon.png" width="50%" style="margin-top: 25px;" alt=""/><br />
+			<img src="images/logos-branding/BoBaz-logo-text-SPRING.png" width="50%" style="margin-top: 25px;" alt=""/><br />
+			<img src="images/logos-branding/KWF-logo.png" width="50%" style="margin-top: 25px;" alt=""/><br />
+			<img src="images/logos-branding/OutlawPraise+Worship-Black.png" width="50%" style="margin-top: 25px;" alt=""/><br />
+			<img src="images/logos-branding/RevHardscapesLLC-2color-Trans.png" width="50%" style="margin-top: 25px;" alt=""/><br />
+			<img src="images/logos-branding/Mainsail-Wealth-Advisors.png" width="50%" style="margin-top: 25px;" alt=""/><br />
+		
+		</div>
+    </center>
+</body>
+</html>

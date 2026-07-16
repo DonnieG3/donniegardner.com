@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KJW3, LLC</title>
+  <meta name="description" content="KJW3, LLC — Technology consulting.">
+  <style>
+    :root {
+      --bg: #08090c;
+      --bg-surface: #0d0f18;
+      --border: #1a1d2e;
+      --text: #e2e8f0;
+      --text-muted: #64748b;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.12);
+      --accent-2: #818cf8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    /* ── Nav ─────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      background: rgba(8, 9, 12, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: inline-flex;
+      align-items: center;
+      width: 132px;
+      height: 32px;
+      text-decoration: none;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      display: block;
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+
+    .nav-link {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--text); }
+
+    /* ── Hero ────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 56px 56px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(56, 189, 248, 0.08) 0%, transparent 90%),
+        linear-gradient(180deg, rgba(8, 9, 12, 0.08), rgba(8, 9, 12, 0.72));
+      pointer-events: none;
+    }
+
+    .hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: blur(46px) saturate(1.25);
+      opacity: 0.28;
+      transform: scale(1.08);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 680px;
+    }
+
+    .hero-logo {
+      display: block;
+      width: min(380px, 78vw);
+      height: auto;
+      margin: 0 auto 1.5rem;
+      filter: drop-shadow(0 18px 38px rgba(0, 102, 255, 0.22));
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 2px;
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 1;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title span {
+      color: transparent;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* ── Contact ─────────────────────────── */
+    #contact {
+      padding: 6rem 2rem;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+    }
+
+    #contact .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
+    .section-label {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      max-width: 540px;
+    }
+
+    .contact-text { flex: 1; min-width: 240px; }
+
+    .contact-items {
+      flex: 1;
+      min-width: 240px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      justify-content: center;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.875rem;
+    }
+
+    .contact-item-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-glow);
+      border-radius: 6px;
+      color: var(--accent);
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .contact-item a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--accent); }
+
+    /* ── Footer ──────────────────────────── */
+    footer {
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    footer p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      width: 104px;
+      height: 26px;
+    }
+
+    .footer-logo img {
+      display: block;
+      width: auto;
+      height: 100%;
+      max-width: 100%;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+     <a href="#" class="nav-logo" aria-label="KJW3, LLC home">KJW3</a>
+     <!--<img src="assets/kjw3-logo.png" alt="KJW3, LLC">
+    </a> -->
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Technology Consulting</div>
+      <img class="hero-logo" src="assets/kjw3-logo.png" alt="KJW3, LLC">
+      <!-- <h1 class="hero-title">Technology that moves work forward.</h1> -->
+      <p class="hero-sub">
+        We help organizations solve hard problems with technology.
+      </p>
+      <a href="#contact" class="btn">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-text">
+        <p class="section-label">Reach Out</p>
+        <h2 class="section-title">Let's Talk</h2>
+        <p class="section-desc">
+          Have a project in mind or want to explore what's possible? We'd love to connect.
+        </p>
+      </div>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/>
+            </svg>
+          </div>
+          <a href="mailto:info@kjw3.llc">info@kjw3.llc</a>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </div>
+          <a href="https://github.com/kjw3llc" target="_blank" rel="noopener noreferrer">github.com/kjw3llc</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <span class="footer-logo">
+      <img src="assets/kjw3-logo.png" alt="KJW3, LLC">
+    </span>
+    <p>&copy; 2026 KJW3, LLC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    (() => {
+      const canvas = document.getElementById('heroCanvas');
+      const ctx = canvas.getContext('2d');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      const colors = ['#0066ff', '#38bdf8', '#818cf8', '#15f5ba'];
+      const blobs = colors.map((color, index) => ({
+        color,
+        radius: 180 + index * 42,
+        phase: index * 1.7,
+        speed: 0.00018 + index * 0.00004
+      }));
+
+      let width = 0;
+      let height = 0;
+      let rafId = null;
+
+      function resize() {
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        width = canvas.offsetWidth;
+        height = canvas.offsetHeight;
+        canvas.width = Math.max(1, Math.floor(width * ratio));
+        canvas.height = Math.max(1, Math.floor(height * ratio));
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        draw(performance.now());
+      }
+
+      function draw(time) {
+        ctx.clearRect(0, 0, width, height);
+        ctx.globalCompositeOperation = 'lighter';
+
+        blobs.forEach((blob, index) => {
+          const drift = prefersReducedMotion.matches ? 0 : time * blob.speed;
+          const x = width * (0.5 + Math.cos(drift + blob.phase) * (0.22 + index * 0.015));
+          const y = height * (0.48 + Math.sin(drift * 1.35 + blob.phase) * (0.18 + index * 0.012));
+          const gradient = ctx.createRadialGradient(x, y, 0, x, y, blob.radius);
+
+          gradient.addColorStop(0, `${blob.color}cc`);
+          gradient.addColorStop(0.42, `${blob.color}55`);
+          gradient.addColorStop(1, `${blob.color}00`);
+
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(x, y, blob.radius, 0, Math.PI * 2);
+          ctx.fill();
+        });
+
+        ctx.globalCompositeOperation = 'source-over';
+
+        if (!prefersReducedMotion.matches) {
+          rafId = requestAnimationFrame(draw);
+        }
+      }
+
+      function start() {
+        cancelAnimationFrame(rafId);
+        resize();
+        if (!prefersReducedMotion.matches) {
+          rafId = requestAnimationFrame(draw);
+        }
+      }
+
+      window.addEventListener('resize', resize);
+      prefersReducedMotion.addEventListener('change', start);
+      start();
+    })();
+  </script>
+</body>
+</html>

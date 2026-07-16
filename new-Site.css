@@ -1,0 +1,35 @@
+@charset "UTF-8";
+/* CSS Document */
+body {
+	background: #F8F8F8;
+}
+
+.bigHead {
+	width: 300px;
+	height: 300px;
+	position:fixed; 
+	bottom: 10px;
+	animation-name: drive;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-direction: left;    
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes drive {
+    0%   {left:130px; top:100px; -webkit-transform: rotateY(0deg); transform: rotateY(0deg);}
+	25%	{left:800px; top:100px; -webkit-transform: rotateY(0deg); transform: rotateY(0deg);}
+	50%	{left:800px; top:100px; -webkit-transform: rotateY(180deg); transform: rotateY(180deg);}
+	75%	{left:130px; top:100px; -webkit-transform: rotateY(180deg); transform: rotateY(180deg);}
+    100% {left:130px; top:100px; -webkit-transform: rotateY(0deg); transform: rotateY(0deg);}
+	
+}
+
+/* Standard syntax */
+@keyframes drive {
+    0%   {left:130px; top:100px; -webkit-transform: rotateY(0deg); transform: rotateY(0deg);}
+	25%	{left:800px; top:100px; -webkit-transform: rotateY(0deg); transform: rotateY(0deg);}
+	50%	{left:800px; top:100px; -webkit-transform: rotateY(180deg); transform: rotateY(180deg);}
+	75%	{left:130px; top:100px; -webkit-transform: rotateY(180deg); transform: rotateY(180deg);}
+    100% {left:130px; top:100px; -webkit-transform: rotateY(0deg); transform: rotateY(0deg);}
+}

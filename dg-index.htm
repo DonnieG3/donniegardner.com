@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<!-- saved from url=(0055)https://donniegardner.com/donnie_portfolio_website.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donnie Gardner - Senior Product Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #667eea;
+        }
+        
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="80" cy="40" r="0.5" fill="%23ffffff" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+        
+        .hero-logo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero-logo svg {
+            width: 150px;
+            height: 150px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-button:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .about-image {
+            text-align: center;
+        }
+        
+        .about-avatar {
+            width: 250px;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-avatar svg {
+            width: 180px;
+            height: 180px;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-tag {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+        }
+        
+        /* Resume Section */
+        .resume-content {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            font-family: 'Georgia', serif;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .resume-header h1 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+        
+        .resume-section {
+            margin-bottom: 2rem;
+        }
+        
+        .resume-section h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+        
+        .job {
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .job-company {
+            font-style: italic;
+            color: #667eea;
+        }
+        
+        .job-dates {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        
+        .job-description {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            background: #f8f9fa;
+            padding: 5rem 0;
+        }
+        
+        .timeline-container {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #667eea;
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-logo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .hero-logo svg {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .job-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .resume-content {
+                padding: 2rem 1rem;
+            }
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        section {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" style="background: rgba(255, 255, 255, 0.95);">
+        <div class="nav-container">
+            <div class="logo">Donnie Gardner</div>
+            <ul class="nav-links">
+                <li><a href="https://donniegardner.com/donnie_portfolio_website.html#about">About</a></li>
+                <li><a href="https://donniegardner.com/donnie_portfolio_website.html#resume">Resume</a></li>
+                <li><a href="https://donniegardner.com/donnie_portfolio_website.html#timeline">Timeline</a></li>
+            </ul>
+            <button class="mobile-menu">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img style="height: 40vh;" src="./dg-index_files/eggHead.png">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Character Head -->
+                    <ellipse cx="200" cy="120" rx="80" ry="90" fill="#f5e6d3" stroke="#333" stroke-width="4"></ellipse>
+                    <!-- Highlight on head -->
+                    <ellipse cx="180" cy="90" rx="15" ry="20" fill="#ffffff" opacity="0.7"></ellipse>
+                    
+                    <!-- Eyes -->
+                    <ellipse cx="175" cy="110" rx="8" ry="15" fill="#333"></ellipse>
+                    <ellipse cx="225" cy="110" rx="8" ry="15" fill="#333"></ellipse>
+                    
+                    <!-- Body - Hoodie -->
+                    <path d="M120 200 Q120 180 140 170 L180 160 Q200 155 220 160 L260 170 Q280 180 280 200 L280 280 Q280 300 260 310 L220 320 Q200 325 180 320 L140 310 Q120 300 120 280 Z" fill="#2d8f47" stroke="#333" stroke-width="3"></path>
+                    
+                    <!-- Hoodie strings -->
+                    <path d="M180 180 Q190 185 200 180 Q210 185 220 180" stroke="#333" stroke-width="2" fill="none"></path>
+                    <circle cx="175" cy="190" r="3" fill="#333"></circle>
+                    <circle cx="225" cy="190" r="3" fill="#333"></circle>
+                    
+                    <!-- Hood -->
+                    <path d="M140 170 Q140 140 160 120 Q180 100 200 100 Q220 100 240 120 Q260 140 260 170 L240 160 Q220 150 200 150 Q180 150 160 160 Z" fill="#2d8f47" stroke="#333" stroke-width="3"></path>
+                    
+                    <!-- Arms -->
+                    <ellipse cx="110" cy="240" rx="25" ry="60" fill="#2d8f47" stroke="#333" stroke-width="3"></ellipse>
+                    <ellipse cx="290" cy="240" rx="25" ry="60" fill="#2d8f47" stroke="#333" stroke-width="3"></ellipse>
+                    
+                    <!-- Hands holding laptop -->
+                    <ellipse cx="95" cy="280" rx="15" ry="20" fill="#f5e6d3" stroke="#333" stroke-width="3"></ellipse>
+                    <ellipse cx="305" cy="280" rx="15" ry="20" fill="#f5e6d3" stroke="#333" stroke-width="3"></ellipse>
+                    
+                    <!-- Laptop -->
+                    <rect x="140" y="270" width="120" height="80" rx="5" fill="#999" stroke="#333" stroke-width="3"></rect>
+                    <!-- Laptop screen -->
+                    <rect x="145" y="275" width="110" height="70" rx="3" fill="#333"></rect>
+                    <!-- Apple logo -->
+                    <path d="M200 300 Q195 295 200 290 Q205 295 200 300 Q195 305 200 310 Q205 305 200 300" fill="#fff" opacity="0.8"></path>
+                    <circle cx="198" cy="295" r="2" fill="#fff" opacity="0.8"></circle>
+                    
+                    <!-- Pants/Lower body -->
+                    <ellipse cx="200" cy="360" rx="60" ry="40" fill="#2e5cb8" stroke="#333" stroke-width="3"></ellipse>
+                    
+                    <!-- Legs -->
+                    <ellipse cx="170" cy="400" rx="20" ry="30" fill="#2e5cb8" stroke="#333" stroke-width="3"></ellipse>
+                    <ellipse cx="230" cy="400" rx="20" ry="30" fill="#2e5cb8" stroke="#333" stroke-width="3"></ellipse>
+                    
+                    <!-- Feet -->
+                    <ellipse cx="160" cy="430" rx="25" ry="12" fill="#f5e6d3" stroke="#333" stroke-width="3"></ellipse>
+                    <ellipse cx="240" cy="430" rx="25" ry="12" fill="#f5e6d3" stroke="#333" stroke-width="3"></ellipse>
+                </svg></div>
+            <h1>Donnie Gardner</h1>
+            <p>Senior Product Manager specializing in marketplace growth and user experience optimization</p>
+            <a href="https://donniegardner.com/donnie_portfolio_website.html#about" class="cta-button">Learn More About Me</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Me</h2>
+                <p>20 years of driving growth in B2B and B2C classified marketplaces</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-avatar">
+                        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="100" cy="70" rx="35" ry="40" fill="#f5e6d3"></ellipse>
+                            <ellipse cx="85" cy="65" rx="4" ry="7" fill="#333"></ellipse>
+                            <ellipse cx="115" cy="65" rx="4" ry="7" fill="#333"></ellipse>
+                            <path d="M70 120 Q70 110 80 105 L90 100 Q100 98 110 100 L120 105 Q130 110 130 120 L130 160 Q130 170 120 175 L110 180 Q100 182 90 180 L80 175 Q70 170 70 160 Z" fill="#2d8f47"></path>
+                            <ellipse cx="100" cy="190" rx="30" ry="20" fill="#2e5cb8"></ellipse>
+                        </svg>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>Hello! I'm Donnie Gardner, a Senior Product Manager with two decades of experience transforming digital marketplaces and driving user engagement. My journey began in graphic design, which gave me a unique perspective on user experience that I've carried throughout my product management career.</p>
+                    
+                    <p>Currently at Trader Interactive, I lead a $20M Private Party platform serving over 100,000 users. I'm passionate about using data-driven insights to create products that not only meet business objectives but genuinely improve users' lives. My approach combines strategic thinking with hands-on execution, always focusing on measurable outcomes.</p>
+                    
+                    <p>What drives me is the intersection of technology, user experience, and business growth. I believe the best products are built when cross-functional teams collaborate effectively, iterate quickly, and stay focused on solving real problems for real people.</p>
+                    
+                    <div class="skills">
+                        <span class="skill-tag">Product Strategy</span>
+                        <span class="skill-tag">Agile/Scrum</span>
+                        <span class="skill-tag">A/B Testing</span>
+                        <span class="skill-tag">Revenue Optimization</span>
+                        <span class="skill-tag">User Experience</span>
+                        <span class="skill-tag">Team Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Resume</h2>
+                <p>My professional journey and key achievements</p>
+            </div>
+            <div class="resume-content">
+                <div class="resume-header">
+                    <h1>Donnie Gardner</h1>
+                    <div class="contact-info">
+                        📍 Chesapeake, VA | 📧 donniegardner3rd@gmail.com | 📞 (757) 652-4353<br>
+                        🔗 <a href="https://linkedin.com/in/donniegardner">LinkedIn</a> | 🌐 <a href="https://donniegardner.com/">Portfolio</a>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Experience</h3>
+                    
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Senior Product Manager, Consumer Experiences</div>
+                                <div class="job-company">Trader Interactive</div>
+                            </div>
+                            <div class="job-dates">Dec 2022 - Present</div>
+                        </div>
+                        <div class="job-description">
+                            Lead $20M Private Party platform serving 100K+ users; delivered double-digit revenue growth through package pricing optimization
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Product Manager, Consumer Native Apps</div>
+                                <div class="job-company">Trader Interactive</div>
+                            </div>
+                            <div class="job-dates">Jan 2019 - Dec 2022</div>
+                        </div>
+                        <div class="job-description">
+                            Improved app ratings from 2-star to 4-star average and doubled active user base through UX redesign and engagement strategies
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Product Development Manager, Commercial Brands</div>
+                                <div class="job-company">Dominion Enterprises</div>
+                            </div>
+                            <div class="job-dates">Jan 2012 - Jan 2019</div>
+                        </div>
+                        <div class="job-description">
+                            Led 4-person Agile team managing Commercial Truck Trader and Equipment Trader; owned search, SEO, inventory management
+                        </div>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Graphic Design Supervisor</div>
+                                <div class="job-company">Dominion Enterprises</div>
+                            </div>
+                            <div class="job-dates">Aug 2008 - Jan 2012</div>
+                        </div>
+                        <div class="job-description">
+                            Managed 4-person design team for Trader brands; established workflows improving efficiency and brand consistency
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Education &amp; Certifications</h3>
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">BFA Graphic Design (Cum Laude)</div>
+                                <div class="job-company">Old Dominion University</div>
+                            </div>
+                            <div class="job-dates">2003</div>
+                        </div>
+                    </div>
+                    <div class="job">
+                        <div class="job-header">
+                            <div>
+                                <div class="job-title">Certified Scrum Product Owner (CSPO)</div>
+                                <div class="job-company">Scrum Alliance</div>
+                            </div>
+                            <div class="job-dates">2017</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resume-section">
+                    <h3>Core Skills</h3>
+                    <div class="job-description">
+                        Agile/Scrum • Product Strategy • Revenue Optimization • A/B Testing • iOS/Android • Cross-functional Leadership
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="timeline-section" style="opacity: 1; transform: translateY(0px); transition: opacity 0.6s, transform 0.6s;">
+        <div class="container">
+            <div class="section-header">
+                <h2>Career Timeline</h2>
+                <p>Interactive roadmap of my professional journey</p>
+            </div>
+            <div class="timeline-container">
+                <iframe src="./dg-index_files/saved_resource.html" utf-8"="">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <style>
+                        * { margin: 0; padding: 0; box-sizing: border-box; }
+                        body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; }
+                        .timeline { position: relative; width: 100%; height: 400px; overflow-x: auto; padding: 20px; }
+                        .year-axis { position: absolute; bottom: 50px; left: 80px; right: 20px; height: 2px; background: linear-gradient(90deg, #3498db, #9b59b6); }
+                        .year-labels { position: absolute; bottom: 20px; left: 80px; right: 20px; display: flex; justify-content: space-between; }
+                        .year-label { font-weight: bold; color: #34495e; font-size: 0.9rem; }
+                        .lane { position: absolute; left: 0; right: 0; height: 80px; border-left: 3px solid; padding-left: 20px; }
+                        .lane-education { top: 20px; border-color: #e74c3c; }
+                        .lane-experience { top: 120px; border-color: #3498db; }
+                        .lane-certifications { top: 220px; border-color: #2ecc71; }
+                        .lane-label { position: absolute; left: -70px; top: 30px; font-weight: bold; font-size: 0.9rem; color: #2c3e50; }
+                        .timeline-item { position: absolute; background: white; border-radius: 8px; padding: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border-left: 3px solid; cursor: pointer; transition: all 0.3s ease; min-width: 150px; max-width: 200px; }
+                        .timeline-item:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); z-index: 1000; position: relative; }
+                        .timeline-item h4 { font-size: 0.8rem; margin-bottom: 3px; color: #2c3e50; }
+                        .timeline-item .company { font-size: 0.7rem; color: #7f8c8d; margin-bottom: 3px; }
+                        .timeline-item .duration { font-size: 0.65rem; color: #95a5a6; }
+                        .education { border-color: #e74c3c; top: 20px; }
+                        .experience { border-color: #3498db; top: 120px; }
+                        .certification { border-color: #2ecc71; top: 220px; }
+                        .pos-2003 { left: 150px; } .pos-2004 { left: 180px; } .pos-2008 { left: 260px; } .pos-2012 { left: 360px; } .pos-2017 { left: 480px; } .pos-2019 { left: 540px; } .pos-2022 { left: 640px; }
+                    </style>
+                </head>
+                <body>
+                    <div class="timeline">
+                        <div class="lane lane-education"><div class="lane-label">Education</div></div>
+                        <div class="lane lane-experience"><div class="lane-label">Experience</div></div>
+                        <div class="lane lane-certifications"><div class="lane-label">Certs</div></div>
+                        
+                        <div class="year-axis"></div>
+                        <div class="year-labels">
+                            <div class="year-label">2000</div><div class="year-label">2005</div><div class="year-label">2010</div><div class="year-label">2015</div><div class="year-label">2020</div><div class="year-label">2025</div>
+                        </div>
+                        
+                        <div class="timeline-item education pos-2003"><h4>BFA Graphic Design</h4><div class="company">Old Dominion University</div><div class="duration">1999-2003</div></div>
+                        
+                        <div class="timeline-item experience pos-2004"><h4>Marketing Designer</h4><div class="company">AutoMart.com</div><div class="duration">2004-2005</div></div>
+                        <div class="timeline-item experience pos-2008"><h4>Design Supervisor</h4><div class="company">Dominion Enterprises</div><div class="duration">2008-2012</div></div>
+                        <div class="timeline-item experience pos-2012"><h4>Product Dev Manager</h4><div class="company">Dominion Enterprises</div><div class="duration">2012-2019</div></div>
+                        <div class="timeline-item experience pos-2019"><h4>Product Manager</h4><div class="company">Trader Interactive</div><div class="duration">2019-2022</div></div>
+                        <div class="timeline-item experience pos-2022"><h4>Senior Product Manager</h4><div class="company">Trader Interactive</div><div class="duration">2022-Present</div></div>
+                        
+                        <div class="timeline-item certification pos-2017"><h4>Certified Scrum Product Owner</h4><div class="company">Scrum Alliance</div><div class="duration">2017</div></div>
+                    </div>
+                </body>
+                <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl505663'},{'dcenter':'p3'},{'cp_id':'6305749'},{'cp_cache':''},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script></html>
+                `)}" width="100%" height="400" frameborder="0"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="mailto:donniegardner3rd@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/donniegardner" target="_blank">LinkedIn</a>
+                <a href="tel:757-652-4353">Phone</a>
+            </div>
+            <p>© 2025 Donnie Gardner. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Hero section is always visible
+        document.querySelector('.hero').style.opacity = '1';
+        document.querySelector('.hero').style.transform = 'translateY(0)';
+    </script>
+
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl505663'},{'dcenter':'p3'},{'cp_id':'6305749'},{'cp_cache':''},{'cp_cl':'8'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src="./dg-index_files/tccl.min.js"></script><div id="chrome_websiteIP" class="chrome_websiteIP_right">107.180.47.66</div></body></html>
