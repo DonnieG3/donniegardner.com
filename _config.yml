@@ -1,0 +1,7 @@
+exclude:
+  - .git
+  - .gitignore
+  - .htaccess
+  - .htaccess.preinstall
+  - cgi-bin
+  - images.zip
