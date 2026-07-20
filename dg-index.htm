@@ -74,7 +74,10 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+            background:
+                linear-gradient(rgba(7, 13, 23, 0.28), rgba(7, 13, 23, 0.46)),
+                url('images/hero-galaxy-background.png') center / cover no-repeat,
+                #08101c;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -109,12 +112,9 @@
             width: 200px;
             height: 200px;
             margin: 0 auto 2rem;
-            background: white;
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
         }
         
         .hero-logo svg {
