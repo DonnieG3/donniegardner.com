@@ -31,22 +31,27 @@
         
         .header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
+        }
+
+        .header-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: block;
+            object-fit: cover;
+            margin: 0 auto 16px;
+            box-shadow: 0 12px 30px rgba(44, 62, 80, 0.2);
         }
         
         .header h1 {
             font-size: 2.5rem;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 0;
             background: linear-gradient(45deg, #667eea, #764ba2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-        
-        .header p {
-            font-size: 1.2rem;
-            color: #7f8c8d;
         }
         
         .timeline-container {
@@ -58,14 +63,14 @@
         .timeline {
             position: relative;
             width: 1200px;
-            height: 600px;
+            height: 680px;
             margin: 0 auto;
         }
         
         /* Year axis */
         .year-axis {
             position: absolute;
-            bottom: 0;
+            top: 45px;
             left: 80px;
             right: 20px;
             height: 2px;
@@ -75,7 +80,7 @@
         
         .year-labels {
             position: absolute;
-            bottom: -30px;
+            top: 10px;
             left: 80px;
             right: 20px;
             display: flex;
@@ -93,7 +98,7 @@
         .year-label::before {
             content: '';
             position: absolute;
-            top: -32px;
+            top: 28px;
             left: 50%;
             transform: translateX(-50%);
             width: 2px;
@@ -112,17 +117,18 @@
         }
         
         .lane-education {
-            top: 50px;
+            top: 110px;
             border-color: #e74c3c;
         }
         
         .lane-experience {
-            top: 200px;
+            top: 260px;
+            height: 250px;
             border-color: #3498db;
         }
         
         .lane-certifications {
-            top: 350px;
+            top: 540px;
             border-color: #2ecc71;
         }
         
@@ -188,22 +194,26 @@
         /* Education items */
         .education {
             border-color: #e74c3c;
-            top: 50px;
+            top: 110px;
         }
         
         /* Experience items */
         .experience {
             border-color: #3498db;
-            top: 200px;
+            top: 260px;
+        }
+
+        .experience-low {
+            top: 390px;
         }
         
         /* Certification items */
         .certification {
             border-color: #2ecc71;
-            top: 350px;
+            top: 540px;
         }
         
-        /* Position calculations based on years 2000-2025 */
+        /* Position calculations based on years 2000-2030 */
         .pos-2003 { left: 210px; }
         .pos-2004 { left: 240px; }
         .pos-2005 { left: 270px; }
@@ -213,9 +223,10 @@
         .pos-2019 { left: 680px; }
         .pos-2022 { left: 800px; }
         .pos-2025 { left: 920px; }
+        .pos-2026 { left: 965px; }
         
         .legend {
-            margin-top: 50px;
+            margin: 0 0 20px;
             display: flex;
             justify-content: center;
             gap: 30px;
@@ -263,8 +274,23 @@
 <body>
     <div class="container">
         <div class="header">
-             <a href="https://donniegardner.com/"><h1>Donnie Gardner</h1></a>
-            <p>Career Journey Timeline - 20 Years of Product Management Excellence</p>
+            <img class="header-photo" src="images/DG-AI-headshot.png" alt="Donnie Gardner">
+            <a href="https://donniegardner.com/"><h1>Donnie Gardner</h1></a>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color legend-education"></div>
+                <span>Education</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-experience"></div>
+                <span>Professional Experience</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color legend-certifications"></div>
+                <span>Certifications</span>
+            </div>
         </div>
         
         <div class="timeline-container">
@@ -289,6 +315,7 @@
                     <div class="year-label">2015</div>
                     <div class="year-label">2020</div>
                     <div class="year-label">2025</div>
+                    <div class="year-label">2030</div>
                 </div>
                 
                 <!-- Education -->
@@ -307,7 +334,7 @@
                     <div class="highlight">Print & digital campaigns<br>Ad trafficking operations</div>
                 </div>
                 
-                <div class="timeline-item experience pos-2005">
+                <div class="timeline-item experience experience-low pos-2005">
                     <h3>Web Graphic Designer</h3>
                     <div class="company">Dominion Enterprises</div>
                     <div class="duration">Sep 2005 - Aug 2008</div>
@@ -321,7 +348,7 @@
                     <div class="highlight">Managed 4-person team<br>Brand consistency workflows</div>
                 </div>
                 
-                <div class="timeline-item experience pos-2012">
+                <div class="timeline-item experience experience-low pos-2012">
                     <h3>Product Development Manager</h3>
                     <div class="company">Dominion Enterprises</div>
                     <div class="duration">Jan 2012 - Jan 2019</div>
@@ -335,11 +362,25 @@
                     <div class="highlight">2→4 star app ratings<br>Doubled active users</div>
                 </div>
                 
-                <div class="timeline-item experience pos-2022">
+                <div class="timeline-item experience experience-low pos-2022">
                     <h3>Senior Product Manager</h3>
                     <div class="company">Trader Interactive</div>
                     <div class="duration">Dec 2022 - Present</div>
                     <div class="highlight">$20M platform leader<br>100K+ users served<br>Double-digit growth</div>
+                </div>
+
+                <div class="timeline-item experience pos-2025">
+                    <h3>VP of Operations</h3>
+                    <div class="company">Bodacious Bazaar</div>
+                    <div class="duration">June 2025 - Present</div>
+                    <div class="highlight">Bi-annual shopping event<br>300 vendors<br>15K attendees</div>
+                </div>
+
+                <div class="timeline-item experience experience-low pos-2026">
+                    <h3>Product Consultant</h3>
+                    <div class="company">KJW3.llc</div>
+                    <div class="duration">June 2026 - Present</div>
+                    <div class="highlight">AI product research<br>Product development<br>Launch strategy</div>
                 </div>
                 
                 <!-- Certifications -->
@@ -349,21 +390,6 @@
                     <div class="duration">June 2017</div>
                     <div class="highlight">CSPO Certification<br>Agile methodology expertise</div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-color legend-education"></div>
-                <span>Education</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color legend-experience"></div>
-                <span>Professional Experience</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color legend-certifications"></div>
-                <span>Certifications</span>
             </div>
         </div>
     </div>
