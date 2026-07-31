@@ -202,20 +202,13 @@
         }
         
         .about-avatar {
-            width: 250px;
-            height: 250px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: min(100%, 340px);
+            aspect-ratio: 4 / 3;
+            border-radius: 18px;
+            display: block;
+            object-fit: cover;
             margin: 0 auto;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-avatar svg {
-            width: 180px;
-            height: 180px;
         }
         
         .about-text {
@@ -463,20 +456,18 @@
         <div class="container">
             <div class="section-header">
                 <h2>About Me</h2>
-                <p>20 years of driving growth in B2B and B2C classified marketplaces</p>
+                <p>Product leadership, operations, consulting, and family life in Chesapeake</p>
             </div>
             <div class="about-content">
                 <div class="about-image">
-                    <div class="about-avatar">
-                        <img style="height: 30vh;" src="https://donniegardner.com/images/LDG-Gemini_Generated_Image_1.jpg">
-                    </div>
+                    <img class="about-avatar" src="images/about-family.jpeg" alt="Donnie Gardner and his wife at the beach">
                 </div>
                 <div class="about-text">
-                    <p>Hello! I'm Donnie Gardner, a Product Leader with two decades of experience transforming digital marketplaces and driving user engagement. My journey began in graphic design, which gave me a unique perspective on user experience that I've carried throughout my product management career.</p>
+                    <p>Hello! I'm Donnie Gardner, a Product Leader, operator, and consultant with two decades of experience turning ideas into useful products and measurable business outcomes. My path started in graphic design, grew through product leadership, and now includes operations with Bodacious Bazaar and consulting work that uses AI to research, develop, and launch new products.</p>
                     
-                    <p>Currently at Trader Interactive, I lead a $20M Private Party platform serving over 100,000 users. I'm passionate about using data-driven insights to create products that not only meet business objectives but genuinely improve users' lives. My approach combines strategic thinking with hands-on execution, always focusing on measurable outcomes.</p>
+                    <p>I live in Chesapeake, Virginia with my wife and our two daughters. Away from work, I enjoy sci-fi and horror movies and shows, spending time with family, and finding practical ways technology can make everyday life and business a little better.</p>
                     
-                    <p>What drives me is the intersection of technology, user experience, and business growth. I believe the best products are built when cross-functional teams collaborate effectively, iterate quickly, and stay focused on solving real problems for real people.</p>
+                    <p>What drives me is the intersection of technology, operations, user experience, and business growth. I believe the best work happens when people move quickly, stay curious, and focus on solving real problems for real people.</p>
                     
                     <div class="skills">
                         <span class="skill-tag">Product Strategy</span>
