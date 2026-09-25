@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} ^(www\.)?funfetalphotos\.com$ [NC]
+RewriteRule ^(.*)$ https://funfetalphotos.com/$1 [L,R=301]
+</IfModule>
+
+
+RewriteOptions inherit
