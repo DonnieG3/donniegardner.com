@@ -27,6 +27,7 @@ body:not(.home-page) .site-content{padding:80px max(6vw,24px);min-height:65vh;ba
 @media(max-width:650px){.hero-botanical{width:80px;height:125px;right:-3px;top:2rem;opacity:.45;transform:scale(.78) rotate(11deg)}.hero-stamp{display:none}.hero-copy{background:radial-gradient(circle at 12% 10%,rgba(217,163,163,.18) 0 8%,transparent 8.3%),linear-gradient(135deg,rgba(231,184,143,.10),transparent 48%)}.hero-visual:before{width:92px;height:92px;right:-40px;top:18px}.photo-frame:after{inset:10px}}
 
 .hero{position:relative}.hero-baby{position:absolute!important;z-index:2!important;right:-100px;top:1.25rem;width:clamp(320px,28vw,520px);height:auto;opacity:.34;transform:rotate(4deg);filter:drop-shadow(0 16px 22px rgba(38,61,50,.08));pointer-events:none}.hero-botanical{display:none!important}
+@media(min-width:1001px){.hero-baby{display:none}}
 @media(max-width:1000px){.hero-baby{right:-90px;top:1rem;width:360px;opacity:.3}}
 @media(max-width:650px){.hero-baby{right:-78px;top:.6rem;width:230px;opacity:.25}}
 
