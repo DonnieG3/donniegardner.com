@@ -52,11 +52,8 @@
         .header-photo {
             width: 120px;
             height: 120px;
-            border-radius: 50%;
             display: block;
-            object-fit: cover;
             margin: 0 auto 16px;
-            box-shadow: 0 12px 30px rgba(44, 62, 80, 0.2);
         }
         
         .header h1 {
@@ -73,6 +70,118 @@
             position: relative;
             overflow-x: auto;
             padding: 20px 0;
+        }
+
+        .life-calculator,
+        .work-chronology {
+            max-width: 920px;
+            margin: 0 auto 36px;
+            padding: 28px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08));
+            border: 1px solid rgba(102, 126, 234, 0.16);
+            border-radius: 16px;
+        }
+
+        .work-chronology {
+            max-width: none;
+            margin-bottom: 0;
+        }
+
+        .life-calculator h2,
+        .work-chronology h2 {
+            color: #2c3e50;
+            font-size: 1.35rem;
+            margin-bottom: 6px;
+            text-align: center;
+        }
+
+        .work-chronology h2 {
+            margin-bottom: 20px;
+        }
+
+        .life-calculator > p {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-bottom: 22px;
+            text-align: center;
+        }
+
+        .life-bars {
+            display: grid;
+            gap: 16px;
+        }
+
+        .life-bar-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 6px;
+        }
+
+        .life-bar-label {
+            color: #2c3e50;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .life-bar-value {
+            color: #667eea;
+            font-size: 0.8rem;
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+        }
+
+        .life-bar-track {
+            height: 14px;
+            overflow: hidden;
+            background: rgba(44, 62, 80, 0.1);
+            border-radius: 999px;
+        }
+
+        .life-bar-fill {
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: inherit;
+            transition: width 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .life-bar-note {
+            display: block;
+            color: #95a5a6;
+            font-size: 0.7rem;
+            margin-top: 4px;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            margin: 20px -20px -20px;
+            padding: 2rem 20px;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
         }
         
         .timeline {
@@ -263,12 +372,96 @@
         .legend-education { background-color: #e74c3c; }
         .legend-experience { background-color: #3498db; }
         .legend-certifications { background-color: #2ecc71; }
+
+        .mobile-chronology {
+            display: none;
+        }
+
+        .mobile-year-group + .mobile-year-group {
+            margin-top: 24px;
+        }
+
+        .mobile-year {
+            color: #667eea;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .mobile-role {
+            background: white;
+            border-left: 4px solid #3498db;
+            border-radius: 10px;
+            padding: 14px;
+            box-shadow: 0 6px 18px rgba(44, 62, 80, 0.08);
+        }
+
+        .mobile-role + .mobile-role {
+            margin-top: 10px;
+        }
+
+        .mobile-role.education-role {
+            border-left-color: #e74c3c;
+        }
+
+        .mobile-role.certification-role {
+            border-left-color: #2ecc71;
+        }
+
+        .mobile-role h3 {
+            color: #2c3e50;
+            font-size: 0.95rem;
+            margin-bottom: 3px;
+        }
+
+        .mobile-role .company {
+            color: #7f8c8d;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .mobile-role .duration,
+        .mobile-role .highlight {
+            color: #95a5a6;
+            font-size: 0.75rem;
+            margin-top: 5px;
+        }
+
+        .mobile-role .highlight {
+            color: #34495e;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 1024px) {
+            .work-chronology .legend,
+            .work-chronology .timeline-container {
+                display: none;
+            }
+
+            .mobile-chronology {
+                display: block;
+            }
+        }
         
         @media (max-width: 768px) {
             .container {
                 padding: 20px;
             }
-            
+
+            .life-calculator {
+                padding: 22px 18px;
+            }
+
+            .work-chronology {
+                padding: 22px 18px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 0.75rem 1.5rem;
+            }
+
             .header h1 {
                 font-size: 2rem;
             }
@@ -288,27 +481,35 @@
 <body>
     <div class="container">
         <div class="header">
-            <img class="header-photo" src="images/DG-AI-headshot.png" alt="Donnie Gardner">
+            <img class="header-photo" src="images/illustrated-circle.png" alt="Illustrated portrait of Donnie Gardner">
             <a href="https://donniegardner.com/"><h1>Donnie Gardner</h1></a>
         </div>
 
-        <div class="legend">
-            <div class="legend-item">
-                <div class="legend-color legend-education"></div>
-                <span>Education</span>
+        <section class="life-calculator" aria-labelledby="life-calculator-title">
+            <h2 id="life-calculator-title">Life in Perspective</h2>
+            <p>Each bar updates automatically as time progresses.</p>
+            <div class="life-bars" id="life-bars"></div>
+        </section>
+
+        <section class="work-chronology" aria-labelledby="work-chronology-title">
+            <h2 id="work-chronology-title">Work Chronology</h2>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color legend-education"></div>
+                    <span>Education</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-experience"></div>
+                    <span>Professional Experience</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color legend-certifications"></div>
+                    <span>Certifications</span>
+                </div>
             </div>
-            <div class="legend-item">
-                <div class="legend-color legend-experience"></div>
-                <span>Professional Experience</span>
-            </div>
-            <div class="legend-item">
-                <div class="legend-color legend-certifications"></div>
-                <span>Certifications</span>
-            </div>
-        </div>
-        
-        <div class="timeline-container">
-            <div class="timeline">
+
+            <div class="timeline-container">
+                <div class="timeline">
                 <!-- Category lanes -->
                 <div class="lane lane-education">
                     <div class="lane-label">Education</div>
@@ -391,7 +592,7 @@
                 </div>
 
                 <div class="timeline-item experience experience-low pos-2026">
-                    <h3>Director of Product</h3>
+                    <h3>Chief Product Officer</h3>
                     <div class="company">Decent Software LLC</div>
                     <div class="duration">June 2026 - Present</div>
                     <div class="highlight">AI product research<br>Product development<br>Launch strategy</div>
@@ -404,8 +605,195 @@
                     <div class="duration">June 2017</div>
                     <div class="highlight">CSPO Certification<br>Agile methodology expertise</div>
                 </div>
+                </div>
             </div>
-        </div>
+
+            <div class="mobile-chronology">
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2003</h3>
+                    <article class="mobile-role education-role">
+                        <h3>BFA Graphic Design</h3>
+                        <div class="company">Old Dominion University</div>
+                        <div class="duration">1999–2003</div>
+                        <div class="highlight">Graduated Cum Laude · Minor in Art History</div>
+                    </article>
+                </section>
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2004</h3>
+                    <article class="mobile-role">
+                        <h3>Marketing Graphic Designer</h3>
+                        <div class="company">AutoMart.com</div>
+                        <div class="duration">Aug 2004–Sep 2005</div>
+                        <div class="highlight">Print and digital campaigns · Ad trafficking operations</div>
+                    </article>
+                </section>
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2005</h3>
+                    <article class="mobile-role">
+                        <h3>Web Graphic Designer</h3>
+                        <div class="company">Dominion Enterprises</div>
+                        <div class="duration">Sep 2005–Aug 2008</div>
+                        <div class="highlight">Product mockups · RVTrader redesigns</div>
+                    </article>
+                </section>
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2008</h3>
+                    <article class="mobile-role">
+                        <h3>Graphic Design Supervisor</h3>
+                        <div class="company">Dominion Enterprises</div>
+                        <div class="duration">Aug 2008–Jan 2012</div>
+                        <div class="highlight">Managed a four-person team · Brand consistency workflows</div>
+                    </article>
+                </section>
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2012</h3>
+                    <article class="mobile-role">
+                        <h3>Product Development Manager</h3>
+                        <div class="company">Dominion Enterprises</div>
+                        <div class="duration">Jan 2012–Jan 2019</div>
+                        <div class="highlight">Led a four-developer Agile team · Commercial Truck and Equipment Trader</div>
+                    </article>
+                </section>
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2017</h3>
+                    <article class="mobile-role certification-role">
+                        <h3>Certified Scrum Product Owner</h3>
+                        <div class="company">Scrum Alliance</div>
+                        <div class="duration">June 2017</div>
+                        <div class="highlight">CSPO certification · Agile methodology expertise</div>
+                    </article>
+                </section>
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2019</h3>
+                    <article class="mobile-role">
+                        <h3>Product Manager, Native Apps</h3>
+                        <div class="company">Trader Interactive</div>
+                        <div class="duration">Jan 2019–Dec 2022</div>
+                        <div class="highlight">Raised app ratings from two to four stars · Doubled active users</div>
+                    </article>
+                </section>
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2022</h3>
+                    <article class="mobile-role">
+                        <h3>Senior Product Manager</h3>
+                        <div class="company">Trader Interactive</div>
+                        <div class="duration">Dec 2022–Present</div>
+                        <div class="highlight">$20M platform leader · 100K+ users served · Double-digit growth</div>
+                    </article>
+                </section>
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2025</h3>
+                    <article class="mobile-role">
+                        <h3>VP of Operations</h3>
+                        <div class="company">Bodacious Bazaar</div>
+                        <div class="duration">June 2025–Present</div>
+                        <div class="highlight">Biannual shopping event · 300 vendors · 15K attendees</div>
+                    </article>
+                </section>
+                <section class="mobile-year-group">
+                    <h3 class="mobile-year">2026</h3>
+                    <article class="mobile-role">
+                        <h3>Chief Product Officer</h3>
+                        <div class="company">Decent Software LLC</div>
+                        <div class="duration">June 2026–Present</div>
+                        <div class="highlight">AI product research · Product development · Launch strategy</div>
+                    </article>
+                </section>
+            </div>
+        </section>
     </div>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <a href="mailto:me@donniegardner.com">Email</a>
+                <a href="https://linkedin.com/in/donniegardner" target="_blank">LinkedIn</a>
+                <a href="https://github.com/DonnieG3" target="_blank">GitHub</a>
+                <a href="https://www.bible.com/users/donniegjunk" target="_blank">Bible</a>
+                <a href="https://invite.duolingo.com/profile-share/Donnie7595?via=share_profile_qr" target="_blank">Duolingo</a>
+            </div>
+            <p>&copy; 2025 Donnie Gardner. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        const monthDate = (year, month) => new Date(year, month - 1);
+        const birthMonth = monthDate(1978, 2);
+        const motherBirthMonth = monthDate(1955, 5);
+
+        const lifeMilestones = [
+            {
+                label: 'Son',
+                start: birthMonth,
+                denominatorStart: motherBirthMonth,
+                note: "Share of my mother’s life that I’ve been her son"
+            },
+            {
+                label: 'Husband',
+                start: monthDate(2006, 5),
+                denominatorStart: birthMonth,
+                note: 'Share of my life married to Stacey'
+            },
+            {
+                label: 'Father',
+                start: monthDate(2009, 6),
+                denominatorStart: birthMonth,
+                note: 'Share of my life as Sarah and Charlotte’s father'
+            },
+            {
+                label: 'Employee of TI',
+                start: monthDate(2004, 8),
+                end: monthDate(2025, 6),
+                denominatorStart: birthMonth,
+                note: 'Share of my life employed by Trader Interactive'
+            },
+            {
+                label: 'Working with Mentor',
+                start: monthDate(2026, 6),
+                denominatorStart: birthMonth,
+                note: 'Share of my life working with my mentor'
+            }
+        ];
+
+        const barsContainer = document.getElementById('life-bars');
+
+        lifeMilestones.forEach((milestone, index) => {
+            const item = document.createElement('div');
+            item.className = 'life-bar';
+            item.innerHTML = `
+                <div class="life-bar-header">
+                    <span class="life-bar-label">${milestone.label}</span>
+                    <span class="life-bar-value" id="life-value-${index}">0.0%</span>
+                </div>
+                <div class="life-bar-track" role="progressbar" aria-label="${milestone.label}" aria-valuemin="0" aria-valuemax="100">
+                    <div class="life-bar-fill" id="life-fill-${index}"></div>
+                </div>
+                <span class="life-bar-note">${milestone.note}</span>
+            `;
+            barsContainer.appendChild(item);
+        });
+
+        function updateLifeBars() {
+            const now = new Date();
+
+            lifeMilestones.forEach((milestone, index) => {
+                const milestoneEnd = milestone.end || now;
+                const elapsed = Math.max(0, milestoneEnd - milestone.start);
+                const lifetime = Math.max(1, now - milestone.denominatorStart);
+                const percent = Math.min(100, (elapsed / lifetime) * 100);
+                const displayPercent = percent.toFixed(1);
+                const fill = document.getElementById(`life-fill-${index}`);
+                const value = document.getElementById(`life-value-${index}`);
+                const track = fill.parentElement;
+
+                value.textContent = `${displayPercent}%`;
+                track.setAttribute('aria-valuenow', displayPercent);
+                window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
+                    fill.style.width = `${displayPercent}%`;
+                }));
+            });
+        }
+
+        updateLifeBars();
+        window.setInterval(updateLifeBars, 60 * 60 * 1000);
+    </script>
 </body>
 </html>
