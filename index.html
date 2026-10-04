@@ -130,6 +130,11 @@
             width: 150px;
             height: 150px;
         }
+
+        .hero-logo img {
+            width: auto;
+            height: 30vh;
+        }
         
         .hero h1 {
             font-size: 3.5rem;
@@ -385,7 +390,8 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: clamp(1.65rem, 9vw, 2.5rem);
+                white-space: nowrap;
             }
             
             .hero p {
@@ -393,8 +399,13 @@
             }
             
             .hero-logo {
-                width: 150px;
-                height: 150px;
+                width: 110px;
+                height: 110px;
+                margin-top: 1.5rem;
+            }
+
+            .hero-logo img {
+                height: 110px;
             }
             
             .hero-logo svg {
@@ -453,7 +464,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-logo">
-                <img style="height: 30vh;" src="images/illustrated-circle.png" alt="Illustrated portrait of Donnie Gardner">
+                <img src="images/illustrated-circle.png" alt="Illustrated portrait of Donnie Gardner">
             </div>
             <h1>Donnie Gardner</h1>
             <p>Co-founder and Chief Product Officer of Decent Software LLC, utilizing AI to develop new products. VP of Operations for the Bodacious Bazaar, a family business in Hampton, Va.</p>
