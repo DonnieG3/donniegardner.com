@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Donnie Gardner - Career Timeline</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -745,10 +746,10 @@
                 note: 'Share of my life employed by Trader Interactive'
             },
             {
-                label: 'With Friends and Family',
+                label: 'With Friends',
                 start: monthDate(2026, 6),
                 denominatorStart: birthMonth,
-                note: 'Share of my life working with my mentor'
+                note: 'Share of my life with friends'
             }
         ];
 
@@ -759,7 +760,7 @@
             item.className = 'life-bar';
             item.innerHTML = `
                 <div class="life-bar-header">
-                    <span class="life-bar-label">${milestone.label}</span>
+                    <span class="life-bar-label" id="life-label-${index}">${milestone.label}</span>
                     <span class="life-bar-value" id="life-value-${index}">0.0%</span>
                 </div>
                 <div class="life-bar-track" role="progressbar" aria-label="${milestone.label}" aria-valuemin="0" aria-valuemax="100">
@@ -779,11 +780,20 @@
                 const lifetime = Math.max(1, now - milestone.denominatorStart);
                 const percent = Math.min(100, (elapsed / lifetime) * 100);
                 const displayPercent = percent.toFixed(1);
+                const elapsedMonths = Math.max(0,
+                    (milestoneEnd.getFullYear() - milestone.start.getFullYear()) * 12
+                    + milestoneEnd.getMonth() - milestone.start.getMonth()
+                );
+                const years = Math.floor(elapsedMonths / 12);
+                const yearLabel = years === 1 ? 'year' : 'years';
+                const label = document.getElementById(`life-label-${index}`);
                 const fill = document.getElementById(`life-fill-${index}`);
                 const value = document.getElementById(`life-value-${index}`);
                 const track = fill.parentElement;
 
+                label.textContent = `${milestone.label} / ${years} ${yearLabel}`;
                 value.textContent = `${displayPercent}%`;
+                track.setAttribute('aria-label', label.textContent);
                 track.setAttribute('aria-valuenow', displayPercent);
                 window.requestAnimationFrame(() => window.requestAnimationFrame(() => {
                     fill.style.width = `${displayPercent}%`;
